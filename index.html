@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+  Student Information and Course Management System
+  Prepared with AI assistance (Grok Bot). This must be acknowledged
+  according to the lecturer's AI-use policy.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information &amp; Course Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with logo and navigation -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/logo.svg" alt="SCMS logo" width="40" height="40">
+      <span>SCMS</span>
+    </div>
+    <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul id="navLinks" class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#register">Registration</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#records">Student Records</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Module 1: Home -->
+    <section id="home" class="section hero">
+      <h1>Student Information &amp; Course Management System</h1>
+      <p>Welcome! This website helps a college register students, browse the course catalogue and manage student records. Use the menu above or the buttons below.</p>
+      <div class="hero-buttons">
+        <a class="btn" href="#register">Register a Student</a>
+        <a class="btn btn-outline" href="#courses">View Courses</a>
+        <a class="btn btn-outline" href="#records">Student Records</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><span id="courseCount">0</span><small>Courses</small></div>
+        <div class="stat"><span id="studentCount">0</span><small>Students</small></div>
+      </div>
+    </section>
+
+    <!-- Module 2: Registration Form -->
+    <section id="register" class="section">
+      <h2>Student Registration</h2>
+      <form id="registrationForm" novalidate>
+        <div class="form-group">
+          <label for="studentId">Student ID *</label>
+          <input type="text" id="studentId" placeholder="e.g. S004">
+          <small class="error" id="studentIdError"></small>
+        </div>
+        <div class="form-group">
+          <label for="studentName">Student Name *</label>
+          <input type="text" id="studentName" placeholder="Full name">
+          <small class="error" id="studentNameError"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" placeholder="name@example.com">
+          <small class="error" id="emailError"></small>
+        </div>
+        <div class="form-group">
+          <span class="label">Gender *</span>
+          <div class="options">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+          </div>
+          <small class="error" id="genderError"></small>
+        </div>
+        <div class="form-group">
+          <label for="course">Course *</label>
+          <select id="course">
+            <option value="">-- Select a course --</option>
+          </select>
+          <small class="error" id="courseError"></small>
+        </div>
+        <div class="form-group">
+          <span class="label">Skills / Interests</span>
+          <div class="options">
+            <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+            <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+            <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+            <label><input type="checkbox" name="skills" value="Design"> Design</label>
+            <label><input type="checkbox" name="skills" value="Database"> Database</label>
+          </div>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn">Submit</button>
+          <button type="reset" class="btn btn-outline">Reset</button>
+        </div>
+        <p id="formMessage" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Module 3: Course Catalogue -->
+    <section id="courses" class="section">
+      <h2>Course Catalogue</h2>
+      <div class="toolbar">
+        <input type="text" id="courseSearch" placeholder="Search by course name or code...">
+        <select id="durationFilter">
+          <option value="all">All durations</option>
+          <option value="short">Short (3 months or less)</option>
+          <option value="long">Long (more than 3 months)</option>
+        </select>
+      </div>
+      <div id="courseList" class="card-grid"></div>
+      <p id="courseMessage" class="empty-message"></p>
+    </section>
+
+    <!-- Module 4: Student Records -->
+    <section id="records" class="section">
+      <h2>Student Records</h2>
+      <div class="toolbar">
+        <input type="text" id="recordSearch" placeholder="Search by Student ID or name...">
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Name</th><th>Email</th><th>Gender</th><th>Course</th><th>Skills</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+      </div>
+      <p id="recordMessage" class="empty-message"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Student Information &amp; Course Management System - Final Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
